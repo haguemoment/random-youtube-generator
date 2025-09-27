@@ -1,4 +1,149 @@
-            bengali: [
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random YouTube Video Generator - Discover Hidden Gems Without Algorithm</title>
+    <meta name="description" content="Find authentic, low-view YouTube videos and discover hidden content without algorithm bias. Uncover personal vlogs, amateur projects, and genuine moments from real people.">
+    <meta name="keywords" content="random youtube video, hidden youtube gems, low view videos, authentic content, youtube discovery, amateur videos">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ff0000;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .search-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .current-search {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        button {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s;
+            min-width: 200px;
+        }
+        
+        button:hover {
+            background-color: #cc0000;
+        }
+        
+        .strategy-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .content {
+            text-align: left;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .content h2 {
+            color: #ff0000;
+            margin-bottom: 15px;
+        }
+        
+        .content p {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random YouTube Video Generator</h1>
+        
+        <div class="search-container">
+            <div class="current-search" id="currentSearch">
+                Click "Generate Random Search" to discover hidden YouTube gems!
+            </div>
+            
+            <button onclick="generateAndSearch()">Generate Random Search</button>
+            
+            <div class="strategy-info" id="strategyInfo">
+                This generator finds authentic, low-view content by using camera naming patterns, generic titles, and broad topic combinations.
+            </div>
+        </div>
+        
+        <div class="content">
+            <h2>Discover Authentic YouTube Content Hidden from Algorithms</h2>
+            <p>Welcome to the ultimate random YouTube discovery tool designed to uncover genuine, unpolished content that algorithms never surface. This generator specifically targets low-engagement, authentic videos - the kind of personal, amateur, and wonderfully weird content that makes the internet truly special.</p>
+            
+            <p>Our system combines multiple discovery strategies to find hidden gems: default camera file names (like "IMG_1234" or "VID_20210315"), low view count filtering, older upload targeting, and endless topic generation spanning everything from hobbies and daily life to niche interests and personal projects. You'll discover content from real people sharing genuine moments, amateur tutorials, personal vlogs, school projects, and countless other authentic experiences.</p>
+            
+            <p>Unlike algorithmic recommendations that trap you in content bubbles, this random generator opens up the entire spectrum of YouTube's user-generated content. Each search query is crafted to bypass popular, commercial content and instead surface videos with under 1000 views, generic titles, and no commercial intent - exactly the type of authentic content that feels truly random and endlessly watchable.</p>
+            
+            <p>Break free from the algorithm and start discovering the real YouTube - click the button above to generate your first random search and begin exploring the authentic, unfiltered internet. How it should be!</p>
+        </div>
+    </div>
+
+    <script>
+        // Camera naming patterns
+        const cameraPatterns = [
+            'IMG_', 'VID_', 'DSC_', 'MOV_', 'MVI_', 'DSCN', 'P_', 'PICT', 'VIDEO_'
+        ];
+        
+        // Common English word patterns for algorithmic generation
+        const consonants = 'bcdfghjklmnpqrstvwxyz';
+        const vowels = 'aeiou';
+        const commonPrefixes = ['un', 're', 'in', 'dis', 'en', 'non', 'pre', 'pro', 'anti', 'de', 'over', 'out', 'up', 'sub', 'inter', 'fore', 'mis'];
+        const commonSuffixes = ['ing', 'ed', 'er', 'est', 'ly', 'tion', 'ness', 'ment', 'able', 'ful', 'less', 'ous', 'al', 'ic', 'ive', 'ary'];
+        
+        // Phonetically plausible English syllable patterns
+        const syllablePatterns = [
+            'CV', 'CVC', 'VC', 'CCV', 'CCVC', 'CVCC', 'VCC', 'CVCV', 'VCVC'
+        ];
+        
+        // Multilingual word collections - common words in various languages
+const multilingualWords = {bengali: [
                 'ঘর', 'পরিবার', 'মা', 'বাবা', 'সন্তান', 'শিশু', 'বন্ধু', 'ভালোবাসা', 'জীবন', 'কাজ',
                 'স্কুল', 'বই', 'গাড়ি', 'খাবার', 'পানি', 'সঙ্গীত', 'নাচ', 'গান', 'খেলা', 'হাঁটা',
                 'দৌড়', 'ঘুম', 'খাওয়া', 'পান', 'খুশি', 'দুঃখ', 'ভাল', 'খারাপ', 'বড়', 'ছোট',
@@ -98,14 +243,7 @@
                 'نبات', 'حديقة', 'حديقة', 'شاطئ', 'جبل', 'نهر', 'بحيرة', 'محيط', 'بحر', 'غابة',
                 'سماء', 'نجمة', 'قمر', 'شمس', 'أرض', 'نار', 'هواء', 'ريح', 'مطر', 'ثلج'
             ],
-            telugu: [
-                'ఇల్లు', 'కుటుంబం', 'అమ్మ', 'నాన్న', 'పిల్లవాడు', 'శిశువు', 'స్నేహితుడు', 'ప్రేమ', 'జీవితం', 'పని',
-                'పాఠశాల', 'పుస్తకం', 'కారు', 'ఆహారం', 'నీరు', 'సంగీతం', 'నృత్యం', 'పాట', 'ఆట', 'నడవడం',
-                'పరిగెత్తడం', 'నిద్ర', 'తినడం', 'తాగడం', 'సంతోషం', 'దుఃఖం', 'మంచిది', 'చెడ్డది', 'పెద్దది', 'చిన్నది',
-                'కొత్తది', 'పాతది', 'యువ', 'అందమైన', 'మధురమైన', 'సులభం', 'కష్టం', 'వేగం', 'నెమ్మది', 'వేడిమి',
-                'చల్లదనం', 'వెచ్చదనం', 'చల్లదనం', 'వెలుగు', 'చీకటి', 'పగలు', 'రాత్రి', 'ఉదయం', 'సాయంత్రం', 'ఈ రోజు',
-                'రేపు', 'నిన్న', 'వారం', 'నెల', 'సంవత్సరం', 'సమయం', 'డబ్బు', 'ఉద్యోగం', 'వంట', 'చదవడం',
-                'రాయడం', 'గీయడం', 'రంగులు వేయడం', 'పాడడం', 'నృత్యం చేయడం', 'ఈ            hindi: [
+            hindi: [
                 'घर', 'परिवार', 'माँ', 'पिता', 'बच्चा', 'बेबी', 'दोस्त', 'प्यार', 'जीवन', 'काम',
                 'स्कूल', 'किताब', 'कार', 'खाना', 'पानी', 'संगीत', 'नृत्य', 'गाना', 'खेल', 'चलना',
                 'दौड़ना', 'सोना', 'खाना', 'पीना', 'खुश', 'उदास', 'अच्छा', 'बुरा', 'बड़ा', 'छोटा',
@@ -240,7 +378,8 @@
                 'সোনা', 'রঙ', 'উজ্জ্বল', 'অন্ধকার', 'পরিষ্কার', 'মেঘলা', 'সূর্য', 'বৃষ্টি', 'বসন্ত', 'গ্রীষ্ম',
                 'শরৎ', 'শীত', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতি', 'শুক্রবার', 'শনিবার', 'রবিবার', 'জানুয়ারি',
                 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর',
-                'ডিসেম্বর', 'পার্টি', 'উদযাপন', 'উৎসব', 'কনসার            telugu: [
+                'ডিসেম্বর', 'পার্টি', 'উদযাপন', 'উৎসব', 'কনসার            
+            telugu: [
                 'ఇల్లు', 'కుటుంబం', 'అమ్మ', 'నాన్న', 'పిల్లవాడు', 'శిశువు', 'స్నేహితుడు', 'ప్రేమ', 'జీవితం', 'పని',
                 'పాఠశాల', 'పుస్తకం', 'కారు', 'ఆహారం', 'నీరు', 'సంగీతం', 'నృత్యం', 'పాట', 'ఆట', 'నడవడం',
                 'పరిగెత్తడం', 'నిద్ర', 'తినడం', 'తాగడం', 'సంతోషం', 'దుఃఖం', 'మంచిది', 'చెడ్డది', 'పెద్దది', 'చిన్నది',
@@ -319,199 +458,8 @@
                 'eja', 'esin', 'malu', 'elede', 'agutan', 'adie', 'pepeye', 'igi', 'ododo', 'koriko',
                 'eweko', ' ogba', 'ogba', 'eti okun', 'oke', 'odo', 'adagun', 'okun', 'okun', 'igbo',
                 'oju orum', 'irawọ', 'osu', 'oorun', 'aiye', 'ina', 'afefe', 'afefe', 'ojo', 'yinyin'
-            ]
-        };
-        
-        // Years for temporal diversity
-        const years = Array.from({length: 15}, (_, i) => 2010 + i); // 2010-2024
-            english: [
-                // Common words
-                'house', 'home', 'family', 'mother', 'father', 'child', 'baby', 'friend', 'love', 'life',
-                'work', 'school', 'book', 'car', 'food', 'water', 'music', 'dance', 'sing', 'play',
-                'walk', 'run', 'sleep', 'eat', 'drink', 'happy', 'sad', 'good', 'bad', 'big',
-                'small', 'new', 'old', 'young', 'beautiful', 'nice', 'fun', 'easy', 'hard', 'fast',
-                'slow', 'hot', 'cold', 'warm', 'cool', 'light', 'dark', 'day', 'night', 'morning',
-                'evening', 'today', 'tomorrow', 'yesterday', 'week', 'month', 'year', 'time', 'money', 'job',
-                // Activities & hobbies
-                'cooking', 'reading', 'writing', 'drawing', 'painting', 'singing', 'dancing', 'swimming', 'running', 'walking',
-                'hiking', 'camping', 'fishing', 'hunting', 'gardening', 'shopping', 'cleaning', 'washing', 'driving', 'riding',
-                'flying', 'sailing', 'skiing', 'surfing', 'climbing', 'jumping', 'throwing', 'catching', 'building', 'fixing',
-                'making', 'creating', 'designing', 'planning', 'organizing', 'managing', 'leading', 'following', 'helping', 'caring',
-                // Objects & things
-                'phone', 'computer', 'laptop', 'tablet', 'camera', 'video', 'photo', 'picture', 'image', 'movie',
-                'film', 'show', 'game', 'toy', 'gift', 'present', 'surprise', 'party', 'birthday', 'wedding',
-                'holiday', 'vacation', 'trip', 'travel', 'journey', 'adventure', 'experience', 'memory', 'story', 'dream',
-                'hope', 'wish', 'goal', 'plan', 'idea', 'thought', 'mind', 'heart', 'soul', 'body',
-                // More common words
-                'world', 'country', 'city', 'town', 'village', 'street', 'road', 'path', 'way', 'place',
-                'space', 'room', 'kitchen', 'bedroom', 'bathroom', 'living', 'dining', 'office', 'store', 'shop',
-                'market', 'restaurant', 'cafe', 'bar', 'club', 'gym', 'park', 'beach', 'mountain', 'river',
-                'lake', 'ocean', 'sea', 'forest', 'tree', 'flower', 'grass', 'animal', 'dog', 'cat',
-                'bird', 'fish', 'horse', 'cow', 'pig', 'sheep', 'chicken', 'duck', 'rabbit', 'mouse',
-                // Additional vocabulary
-                'brother', 'sister', 'son', 'daughter', 'husband', 'wife', 'boyfriend', 'girlfriend', 'teacher', 'student',
-                'doctor', 'nurse', 'police', 'fire', 'soldier', 'farmer', 'worker', 'manager', 'boss', 'employee',
-                'customer', 'client', 'visitor', 'guest', 'neighbor', 'stranger', 'person', 'people', 'man', 'woman',
-                'boy', 'girl', 'teen', 'adult', 'senior', 'young', 'middle', 'elder', 'junior', 'senior',
-                'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth',
-                'last', 'final', 'initial', 'middle', 'center', 'front', 'back', 'left', 'right', 'up',
-                'down', 'top', 'bottom', 'inside', 'outside', 'near', 'far', 'here', 'there', 'where',
-                'when', 'what', 'who', 'why', 'how', 'which', 'whose', 'whom', 'this', 'that',
-                'red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'brown', 'black', 'white',
-                'gray', 'silver', 'gold', 'color', 'bright', 'dark', 'clear', 'cloudy', 'sunny', 'rainy',
-                'snowy', 'windy', 'stormy', 'weather', 'spring', 'summer', 'autumn', 'winter', 'season', 'holiday',
-                'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'january', 'february', 'march',
-                'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'birthday',
-                'party', 'celebration', 'festival', 'concert', 'movie', 'theater', 'museum', 'library', 'hospital', 'school'
             ],
-            spanish: [
-                'casa', 'hogar', 'familia', 'madre', 'padre', 'hijo', 'hija', 'bebé', 'amigo', 'amiga',
-                'amor', 'vida', 'trabajo', 'escuela', 'libro', 'coche', 'carro', 'comida', 'agua', 'música',
-                'baile', 'cantar', 'jugar', 'caminar', 'correr', 'dormir', 'comer', 'beber', 'feliz', 'triste',
-                'bueno', 'malo', 'grande', 'pequeño', 'nuevo', 'viejo', 'joven', 'hermoso', 'bonito', 'divertido',
-                'fácil', 'difícil', 'rápido', 'lento', 'caliente', 'frío', 'calor', 'fresco', 'luz', 'oscuro',
-                'día', 'noche', 'mañana', 'tarde', 'hoy', 'mañana', 'ayer', 'semana', 'mes', 'año',
-                'cocinar', 'leer', 'escribir', 'dibujar', 'pintar', 'cantar', 'bailar', 'nadar', 'correr', 'caminar',
-                'teléfono', 'computadora', 'cámara', 'video', 'foto', 'película', 'juego', 'regalo', 'fiesta', 'cumpleaños',
-                'viaje', 'aventura', 'mundo', 'país', 'ciudad', 'pueblo', 'calle', 'casa', 'cocina', 'dormitorio',
-                'hermano', 'hermana', 'esposo', 'esposa', 'novio', 'novia', 'maestro', 'estudiante', 'doctor', 'enfermera',
-                'rojo', 'azul', 'verde', 'amarillo', 'naranja', 'morado', 'rosa', 'marrón', 'negro', 'blanco',
-                'gris', 'plata', 'oro', 'color', 'brillante', 'oscuro', 'claro', 'nublado', 'soleado', 'lluvioso',
-                'primavera', 'verano', 'otoño', 'invierno', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado',
-                'domingo', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre',
-                'octubre', 'noviembre', 'diciembre', 'fiesta', 'celebración', 'festival', 'concierto', 'película', 'teatro', 'museo',
-                'perro', 'gato', 'pájaro', 'pez', 'caballo', 'vaca', 'cerdo', 'oveja', 'pollo', 'pato',
-                'árbol', 'flor', 'hierba', 'planta', 'jardín', 'parque', 'playa', 'montaña', 'río', 'lago',
-                'océano', 'mar', 'bosque', 'cielo', 'estrella', 'luna', 'sol', 'tierra', 'fuego', 'aire'
-            ],
-            french: [
-                'maison', 'famille', 'mère', 'père', 'enfant', 'bébé', 'ami', 'amie', 'amour', 'vie',
-                'travail', 'école', 'livre', 'voiture', 'nourriture', 'eau', 'musique', 'danse', 'chanter', 'jouer',
-                'marcher', 'courir', 'dormir', 'manger', 'boire', 'heureux', 'triste', 'bon', 'mauvais', 'grand',
-                'petit', 'nouveau', 'vieux', 'jeune', 'beau', 'joli', 'amusant', 'facile', 'difficile', 'rapide',
-                'lent', 'chaud', 'froid', 'frais', 'lumière', 'sombre', 'jour', 'nuit', 'matin', 'soir',
-                'aujourd\'hui', 'demain', 'hier', 'semaine', 'mois', 'année', 'temps', 'argent', 'emploi', 'monde',
-                'cuisiner', 'lire', 'écrire', 'dessiner', 'peindre', 'chanter', 'danser', 'nager', 'courir', 'marcher',
-                'téléphone', 'ordinateur', 'caméra', 'vidéo', 'photo', 'film', 'jeu', 'cadeau', 'fête', 'anniversaire',
-                'voyage', 'aventure', 'pays', 'ville', 'village', 'rue', 'route', 'cuisine', 'chambre', 'salon',
-                'frère', 'sœur', 'mari', 'femme', 'petit ami', 'petite amie', 'professeur', 'étudiant', 'docteur', 'infirmière',
-                'rouge', 'bleu', 'vert', 'jaune', 'orange', 'violet', 'rose', 'brun', 'noir', 'blanc',
-                'gris', 'argent', 'or', 'couleur', 'brillant', 'sombre', 'clair', 'nuageux', 'ensoleillé', 'pluvieux',
-                'printemps', 'été', 'automne', 'hiver', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi',
-                'dimanche', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre',
-                'octobre', 'novembre', 'décembre', 'fête', 'célébration', 'festival', 'concert', 'cinéma', 'théâtre', 'musée',
-                'chien', 'chat', 'oiseau', 'poisson', 'cheval', 'vache', 'cochon', 'mouton', 'poulet', 'canard',
-                'arbre', 'fleur', 'herbe', 'plante', 'jardin', 'parc', 'plage', 'montagne', 'rivière', 'lac',
-                'océan', 'mer', 'forêt', 'ciel', 'étoile', 'lune', 'soleil', 'terre', 'feu', 'air'
-            ],
-            german: [
-                'haus', 'familie', 'mutter', 'vater', 'kind', 'baby', 'freund', 'freundin', 'liebe', 'leben',
-                'arbeit', 'schule', 'buch', 'auto', 'essen', 'wasser', 'musik', 'tanzen', 'singen', 'spielen',
-                'gehen', 'laufen', 'schlafen', 'essen', 'trinken', 'glücklich', 'traurig', 'gut', 'schlecht', 'groß',
-                'klein', 'neu', 'alt', 'jung', 'schön', 'hübsch', 'spaß', 'einfach', 'schwer', 'schnell',
-                'langsam', 'heiß', 'kalt', 'warm', 'kühl', 'licht', 'dunkel', 'tag', 'nacht', 'morgen',
-                'abend', 'heute', 'morgen', 'gestern', 'woche', 'monat', 'jahr', 'zeit', 'geld', 'arbeit',
-                'kochen', 'lesen', 'schreiben', 'zeichnen', 'malen', 'singen', 'tanzen', 'schwimmen', 'laufen', 'gehen',
-                'telefon', 'computer', 'kamera', 'video', 'foto', 'film', 'spiel', 'geschenk', 'party', 'geburtstag',
-                'reise', 'abenteuer', 'welt', 'land', 'stadt', 'dorf', 'straße', 'weg', 'küche', 'schlafzimmer',
-                'bruder', 'schwester', 'ehemann', 'ehefrau', 'freund', 'freundin', 'lehrer', 'schüler', 'arzt', 'krankenschwester',
-                'rot', 'blau', 'grün', 'gelb', 'orange', 'lila', 'rosa', 'braun', 'schwarz', 'weiß',
-                'grau', 'silber', 'gold', 'farbe', 'hell', 'dunkel', 'klar', 'wolkig', 'sonnig', 'regnerisch',
-                'frühling', 'sommer', 'herbst', 'winter', 'montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag',
-                'sonntag', 'januar', 'februar', 'märz', 'april', 'mai', 'juni', 'juli', 'august', 'september',
-                'oktober', 'november', 'dezember', 'party', 'feier', 'festival', 'konzert', 'film', 'theater', 'museum',
-                'hund', 'katze', 'vogel', 'fisch', 'pferd', 'kuh', 'schwein', 'schaf', 'huhn', 'ente',
-                'baum', 'blume', 'gras', 'pflanze', 'garten', 'park', 'strand', 'berg', 'fluss', 'see',
-                'ozean', 'meer', 'wald', 'himmel', 'stern', 'mond', 'sonne', 'erde', 'feuer', 'luft'
-            ],
-            portuguese: [
-                'casa', 'família', 'mãe', 'pai', 'filho', 'filha', 'bebê', 'amigo', 'amiga', 'amor',
-                'vida', 'trabalho', 'escola', 'livro', 'carro', 'comida', 'água', 'música', 'dança', 'cantar',
-                'jogar', 'andar', 'correr', 'dormir', 'comer', 'beber', 'feliz', 'triste', 'bom', 'mau',
-                'grande', 'pequeno', 'novo', 'velho', 'jovem', 'bonito', 'linda', 'divertido', 'fácil', 'difícil',
-                'rápido', 'devagar', 'quente', 'frio', 'morno', 'fresco', 'luz', 'escuro', 'dia', 'noite',
-                'manhã', 'tarde', 'hoje', 'amanhã', 'ontem', 'semana', 'mês', 'ano', 'tempo', 'dinheiro',
-                'cozinhar', 'ler', 'escrever', 'desenhar', 'pintar', 'cantar', 'dançar', 'nadar', 'correr', 'caminhar',
-                'telefone', 'computador', 'câmera', 'vídeo', 'foto', 'filme', 'jogo', 'presente', 'festa', 'aniversário',
-                'viagem', 'aventura', 'mundo', 'país', 'cidade', 'vila', 'rua', 'estrada', 'cozinha', 'quarto',
-                'irmão', 'irmã', 'marido', 'esposa', 'namorado', 'namorada', 'professor', 'estudante', 'médico', 'enfermeiro',
-                'vermelho', 'azul', 'verde', 'amarelo', 'laranja', 'roxo', 'rosa', 'marrom', 'preto', 'branco',
-                'cinza', 'prata', 'ouro', 'cor', 'brilhante', 'escuro', 'claro', 'nublado', 'ensolarado', 'chuvoso',
-                'primavera', 'verão', 'outono', 'inverno', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado',
-                'domingo', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro',
-                'outubro', 'novembro', 'dezembro', 'festa', 'celebração', 'festival', 'concerto', 'filme', 'teatro', 'museu',
-                'cão', 'gato', 'pássaro', 'peixe', 'cavalo', 'vaca', 'porco', 'ovelha', 'galinha', 'pato',
-                'árvore', 'flor', 'grama', 'planta', 'jardim', 'parque', 'praia', 'montanha', 'rio', 'lago',
-                'oceano', 'mar', 'floresta', 'céu', 'estrela', 'lua', 'sol', 'terra', 'fogo', 'ar'
-            ],
-            russian: [
-                'дом', 'семья', 'мать', 'отец', 'ребенок', 'младенец', 'друг', 'подруга', 'любовь', 'жизнь',
-                'работа', 'школа', 'книга', 'машина', 'еда', 'вода', 'музыка', 'танец', 'петь', 'играть',
-                'идти', 'бежать', 'спать', 'есть', 'пить', 'счастливый', 'грустный', 'хороший', 'плохой', 'большой',
-                'маленький', 'новый', 'старый', 'молодой', 'красивый', 'милый', 'веселый', 'легкий', 'трудный', 'быстрый',
-                'медленный', 'горячий', 'холодный', 'теплый', 'прохладный', 'свет', 'темный', 'день', 'ночь', 'утро',
-                'вечер', 'сегодня', 'завтра', 'вчера', 'неделя', 'месяц', 'год', 'время', 'деньги', 'работа',
-                'готовить', 'читать', 'писать', 'рисовать', 'рисовать', 'петь', 'танцевать', 'плавать', 'бежать', 'идти',
-                'телефон', 'компьютер', 'камера', 'видео', 'фото', 'фильм', 'игра', 'подарок', 'вечеринка', 'день рождения',
-                'путешествие', 'приключение', 'мир', 'страна', 'город', 'деревня', 'улица', 'дорога', 'кухня', 'спальня',
-                'брат', 'сестра', 'муж', 'жена', 'парень', 'девушка', 'учитель', 'студент', 'врач', 'медсестра',
-                'красный', 'синий', 'зеленый', 'желтый', 'оранжевый', 'фиолетовый', 'розовый', 'коричневый', 'черный', 'белый',
-                'серый', 'серебро', 'золото', 'цвет', 'яркий', 'темный', 'ясный', 'облачный', 'солнечный', 'дождливый',
-                'весна', 'лето', 'осень', 'зима', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота',
-                'воскресенье', 'январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь',
-                'октябрь', 'ноябрь', 'декабрь', 'вечеринка', 'празднование', 'фестиваль', 'концерт', 'фильм', 'театр', 'музей',
-                'собака', 'кот', 'птица', 'рыба', 'лошадь', 'корова', 'свинья', 'овца', 'курица', 'утка',
-                'дерево', 'цветок', 'трава', 'растение', 'сад', 'парк', 'пляж', 'гора', 'река', 'озеро',
-                'океан', 'море', 'лес', 'небо', 'звезда', 'луна', 'солнце', 'земля', 'огонь', 'воздух'
-            ],
-            cantonese: [
-                '屋企', '家庭', '媽媽', '爸爸', '仔女', 'BB', '朋友', '愛情', '生活', '工作',
-                '學校', '書', '車', '食物', '水', '音樂', '跳舞', '唱歌', '玩', '行路',
-                '跑步', '瞓覺', '食嘢', '飲嘢', '開心', '唔開心', '好', '唔好', '大', '細',
-                '新', '舊', '後生', '靚', '得意', '容易', '難', '快', '慢', '熱',
-                '凍', '暖', '涼', '光', '黑', '日頭', '夜晚', '朝早', '夜晚', '今日',
-                '聽日', '尋日', '星期', '月', '年', '時間', '錢', '工', '煮嘢食', '睇書',
-                '寫字', '畫畫', '唱歌', '跳舞', '游水', '跑步', '行路', '電話', '電腦', '相機',
-                '拍片', '相', '戲', '遊戲', '禮物', '派對', '生日', '旅行', '冒險', '世界',
-                '國家', '城市', '鄉村', '街', '路', '廚房', '房', '阿哥', '阿妹', '老公',
-                '老婆', '男朋友', '女朋友', '老師', '學生', '醫生', '護士', '紅色', '藍色', '綠色',
-                '黃色', '橙色', '紫色', '粉紅', '啡色', '黑色', '白色', '灰色', '銀色', '金色',
-                '顏色', '光', '暗', '清楚', '多雲', '太陽', '落雨', '春天', '夏天', '秋天',
-                '冬天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日', '一月', '二月',
-                '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月',
-                '派對', '慶祝', '節日', '音樂會', '戲院', '博物館', '狗', '貓', '雀仔', '魚',
-                '馬', '牛', '豬', '羊', '雞', '鴨', '樹', '花', '草', '植物',
-                '花園', '公園', '海灘', '山', '河', '湖', '海洋', '海', '森林', '天空',
-                '星', '月亮', '太陽', '地球', '火', '空氣', '風', '雨', '雪', '雷'
-            ],
-            mandarin: [
-                '家', '家庭', '妈妈', '爸爸', '孩子', '宝宝', '朋友', '爱', '生活', '工作',
-                '学校', '书', '车', '食物', '水', '音乐', '跳舞', '唱歌', '玩', '走路',
-                '跑步', '睡觉', '吃', '喝', '高兴', '伤心', '好', '坏', '大', '小',
-                '新', '旧', '年轻', '漂亮', '可爱', '容易', '难', '快', '慢', '热',
-                '冷', '温暖', '凉爽', '光', '暗', '白天', '晚上', '早上', '晚上', '今天',
-                '明天', '昨天', '星期', '月', '年', '时间', '钱', '工作', '做饭', '读书',
-                '写字', '画画', '唱歌', '跳舞', '游泳', '跑步', '走路', '电话', '电脑', '照相机',
-                '录像', '照片', '电影', '游戏', '礼物', '聚会', '生日', '旅行', '冒险', '世界',
-                '国家', '城市', '村庄', '街道', '路', '厨房', '卧室', '哥哥', '姐姐', '丈夫',
-                '妻子', '男朋友', '女朋友', '老师', '学生', '医生', '护士', '红色', '蓝色', '绿色',
-                '黄色', '橙色', '紫色', '粉色', '棕色', '黑色', '白色', '灰色', '银色', '金色',
-                '颜色', '亮', '暗', '清楚', '多云', '阳光', '下雨', '春天', '夏天', '秋天',
-                '冬天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日', '一月', '二月',
-                '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月',
-                '聚会', '庆祝', '节日', '音乐会', '电影院', '博物馆', '狗', '猫', '鸟', '鱼',
-                '马', '牛', '猪', '羊', '鸡', '鸭', '树', '花', '草', '植物',
-                '花园', '公园', '海滩', '山', '河', '湖', '海洋', '海', '森林', '天空',
-                '星星', '月亮', '太阳', '地球', '火', '空气', '风', '雨', '雪', '雷'
-            ],
-            hindi: [
-                'घर', 'परिवार', 'माँ', 'पिता', 'बच्चा', 'बेबी', 'दोस्त', 'प्यार', 'जीवन', 'काम',
-                'स्कूल', 'किताब', 'कार', 'खाना', 'पानी', 'संगीत', 'नृत्य', 'गाना', 'खेल', 'चलना',
-                'दौड़ना', 'सोना', 'खाना', 'पीना', 'खुश', 'उदास', 'अच्छा', 'बुरा', 'बड़ा', 'छोटा',
-                'नया', 'पुराना', 'जवान', 'सुंदर', 'प्यारा', 'आसान', 'कठिन', 'तेज', 'धीमा', 'गर्म',
-                'ठंडा', 'गर्म', 'ठंडा', 'प्रकाश', 'अंधेरा', 'दिन', 'रात', 'सुबह', 'शाम', '        // Expanded multilingual word collections - 1000+ words per language
-        const multilingualWords = {
-            english: [
+                    english: [
                 // Common words
                 'house', 'home', 'family', 'mother', 'father', 'child', 'baby', 'friend', 'love', 'life',
                 'work', 'school', 'book', 'car', 'food', 'water', 'music', 'dance', 'sing', 'play',
@@ -707,224 +655,67 @@
                 'frente', 'trás', 'esquerda', 'direita', 'cima', 'baixo', 'dentro', 'fora', 'perto', 'longe',
                 'aqui', 'ali', 'onde', 'quando', 'que', 'quem', 'por que', 'como', 'qual', 'este',
                 'esse', 'alguns', 'muitos', 'poucos', 'mais', 'menos', 'tudo', 'nada', 'ambos', 'cada',
-                'outro', 'mesmo<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random YouTube Video Generator - Discover Hidden Gems Without Algorithm</title>
-    <meta name="description" content="Find authentic, low-view YouTube videos and discover hidden content without algorithm bias. Uncover personal vlogs, amateur projects, and genuine moments from real people.">
-    <meta name="keywords" content="random youtube video, hidden youtube gems, low view videos, authentic content, youtube discovery, amateur videos">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #ff0000;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-        
-        .search-container {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .current-search {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: white;
-            border: 2px solid #ff0000;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        
-        button {
-            background-color: #ff0000;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-            transition: background-color 0.3s;
-            min-width: 200px;
-        }
-        
-        button:hover {
-            background-color: #cc0000;
-        }
-        
-        .strategy-info {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e8f4f8;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .content {
-            text-align: left;
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .content h2 {
-            color: #ff0000;
-            margin-bottom: 15px;
-        }
-        
-        .content p {
-            margin-bottom: 15px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Random YouTube Video Generator</h1>
-        
-        <div class="search-container">
-            <div class="current-search" id="currentSearch">
-                Click "Generate Random Search" to discover hidden YouTube gems!
-            </div>
-            
-            <button onclick="generateAndSearch()">Generate Random Search</button>
-            
-            <div class="strategy-info" id="strategyInfo">
-                This generator finds authentic, low-view content by using camera naming patterns, generic titles, and broad topic combinations.
-            </div>
-        </div>
-        
-        <div class="content">
-            <h2>Discover Authentic YouTube Content Hidden from Algorithms</h2>
-            <p>Welcome to the ultimate random YouTube discovery tool designed to uncover genuine, unpolished content that algorithms never surface. This generator specifically targets low-engagement, authentic videos - the kind of personal, amateur, and wonderfully weird content that makes the internet truly special.</p>
-            
-            <p>Our system combines multiple discovery strategies to find hidden gems: default camera file names (like "IMG_1234" or "VID_20210315"), low view count filtering, older upload targeting, and endless topic generation spanning everything from hobbies and daily life to niche interests and personal projects. You'll discover content from real people sharing genuine moments, amateur tutorials, personal vlogs, school projects, and countless other authentic experiences.</p>
-            
-            <p>Unlike algorithmic recommendations that trap you in content bubbles, this random generator opens up the entire spectrum of YouTube's user-generated content. Each search query is crafted to bypass popular, commercial content and instead surface videos with under 1000 views, generic titles, and no commercial intent - exactly the type of authentic content that feels truly random and endlessly watchable.</p>
-            
-            <p>Break free from the algorithm and start discovering the real YouTube - click the button above to generate your first random search and begin exploring the authentic, unfiltered internet. How it should be!</p>
-        </div>
-    </div>
-
-    <script>
-        // Camera naming patterns
-        const cameraPatterns = [
-            'IMG_', 'VID_', 'DSC_', 'MOV_', 'MVI_', 'DSCN', 'P_', 'PICT', 'VIDEO_'
-        ];
-        
-        // Common English word patterns for algorithmic generation
-        const consonants = 'bcdfghjklmnpqrstvwxyz';
-        const vowels = 'aeiou';
-        const commonPrefixes = ['un', 're', 'in', 'dis', 'en', 'non', 'pre', 'pro', 'anti', 'de', 'over', 'out', 'up', 'sub', 'inter', 'fore', 'mis'];
-        const commonSuffixes = ['ing', 'ed', 'er', 'est', 'ly', 'tion', 'ness', 'ment', 'able', 'ful', 'less', 'ous', 'al', 'ic', 'ive', 'ary'];
-        
-        // Phonetically plausible English syllable patterns
-        const syllablePatterns = [
-            'CV', 'CVC', 'VC', 'CCV', 'CCVC', 'CVCC', 'VCC', 'CVCV', 'VCVC'
-        ];
-        
-        // Multilingual word collections - common words in various languages
-        const multilingualWords = {
-            spanish: [
-                'casa', 'perro', 'gato', 'comer', 'dormir', 'amigo', 'familia', 'música',
-                'baile', 'fiesta', 'cocina', 'viaje', 'playa', 'montaña', 'ciudad',
-                'niño', 'niña', 'mamá', 'papá', 'escuela', 'trabajo', 'juego', 'película',
-                'libro', 'coche', 'bicicleta', 'caminar', 'correr', 'cantar', 'reír'
-            ],
-            french: [
-                'maison', 'chien', 'chat', 'manger', 'dormir', 'ami', 'famille', 'musique',
-                'danse', 'fête', 'cuisine', 'voyage', 'plage', 'montagne', 'ville',
-                'enfant', 'maman', 'papa', 'école', 'travail', 'jeu', 'film',
-                'livre', 'voiture', 'vélo', 'marcher', 'courir', 'chanter', 'rire'
-            ],
-            german: [
-                'haus', 'hund', 'katze', 'essen', 'schlafen', 'freund', 'familie', 'musik',
-                'tanzen', 'party', 'küche', 'reise', 'strand', 'berg', 'stadt',
-                'kind', 'mama', 'papa', 'schule', 'arbeit', 'spiel', 'film',
-                'buch', 'auto', 'fahrrad', 'gehen', 'laufen', 'singen', 'lachen'
-            ],
-            italian: [
-                'casa', 'cane', 'gatto', 'mangiare', 'dormire', 'amico', 'famiglia', 'musica',
-                'ballare', 'festa', 'cucina', 'viaggio', 'spiaggia', 'montagna', 'città',
-                'bambino', 'mamma', 'papà', 'scuola', 'lavoro', 'gioco', 'film',
-                'libro', 'macchina', 'bicicletta', 'camminare', 'correre', 'cantare', 'ridere'
-            ],
-            portuguese: [
-                'casa', 'cachorro', 'gato', 'comer', 'dormir', 'amigo', 'família', 'música',
-                'dançar', 'festa', 'cozinha', 'viagem', 'praia', 'montanha', 'cidade',
-                'criança', 'mamãe', 'papai', 'escola', 'trabalho', 'jogo', 'filme',
-                'livro', 'carro', 'bicicleta', 'andar', 'correr', 'cantar', 'rir'
-            ],
-            japanese: [
-                '家', '犬', '猫', '食べる', '寝る', '友達', '家族', '音楽',
-                '踊る', 'パーティー', '料理', '旅行', 'ビーチ', '山', '街',
-                '子供', 'お母さん', 'お父さん', '学校', '仕事', 'ゲーム', '映画',
-                '本', '車', '自転車', '歩く', '走る', '歌う', '笑う'
-            ],
-            korean: [
-                '집', '개', '고양이', '먹다', '자다', '친구', '가족', '음악',
-                '춤', '파티', '요리', '여행', '해변', '산', '도시',
-                '아이', '엄마', '아빠', '학교', '일', '게임', '영화',
-                '책', '자동차', '자전거', '걷다', '뛰다', '노래', '웃다'
-            ],
+                'outro', 'mesmo'],
             russian: [
-                'дом', 'собака', 'кот', 'есть', 'спать', 'друг', 'семья', 'музыка',
-                'танец', 'вечеринка', 'кухня', 'путешествие', 'пляж', 'гора', 'город',
-                'ребенок', 'мама', 'папа', 'школа', 'работа', 'игра', 'фильм',
-                'книга', 'машина', 'велосипед', 'идти', 'бежать', 'петь', 'смеяться'
+                'дом', 'семья', 'мать', 'отец', 'ребенок', 'младенец', 'друг', 'подруга', 'любовь', 'жизнь',
+                'работа', 'школа', 'книга', 'машина', 'еда', 'вода', 'музыка', 'танец', 'петь', 'играть',
+                'идти', 'бежать', 'спать', 'есть', 'пить', 'счастливый', 'грустный', 'хороший', 'плохой', 'большой',
+                'маленький', 'новый', 'старый', 'молодой', 'красивый', 'милый', 'веселый', 'легкий', 'трудный', 'быстрый',
+                'медленный', 'горячий', 'холодный', 'теплый', 'прохладный', 'свет', 'темный', 'день', 'ночь', 'утро',
+                'вечер', 'сегодня', 'завтра', 'вчера', 'неделя', 'месяц', 'год', 'время', 'деньги', 'работа',
+                'готовить', 'читать', 'писать', 'рисовать', 'рисовать', 'петь', 'танцевать', 'плавать', 'бежать', 'идти',
+                'телефон', 'компьютер', 'камера', 'видео', 'фото', 'фильм', 'игра', 'подарок', 'вечеринка', 'день рождения',
+                'путешествие', 'приключение', 'мир', 'страна', 'город', 'деревня', 'улица', 'дорога', 'кухня', 'спальня',
+                'брат', 'сестра', 'муж', 'жена', 'парень', 'девушка', 'учитель', 'студент', 'врач', 'медсестра',
+                'красный', 'синий', 'зеленый', 'желтый', 'оранжевый', 'фиолетовый', 'розовый', 'коричневый', 'черный', 'белый',
+                'серый', 'серебро', 'золото', 'цвет', 'яркий', 'темный', 'ясный', 'облачный', 'солнечный', 'дождливый',
+                'весна', 'лето', 'осень', 'зима', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота',
+                'воскресенье', 'январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь',
+                'октябрь', 'ноябрь', 'декабрь', 'вечеринка', 'празднование', 'фестиваль', 'концерт', 'фильм', 'театр', 'музей',
+                'собака', 'кот', 'птица', 'рыба', 'лошадь', 'корова', 'свинья', 'овца', 'курица', 'утка',
+                'дерево', 'цветок', 'трава', 'растение', 'сад', 'парк', 'пляж', 'гора', 'река', 'озеро',
+                'океан', 'море', 'лес', 'небо', 'звезда', 'луна', 'солнце', 'земля', 'огонь', 'воздух'
             ],
-            arabic: [
-                'بيت', 'كلب', 'قط', 'أكل', 'نوم', 'صديق', 'عائلة', 'موسيقى',
-                'رقص', 'حفلة', 'مطبخ', 'سفر', 'شاطئ', 'جبل', 'مدينة',
-                'طفل', 'أم', 'أب', 'مدرسة', 'عمل', 'لعبة', 'فيلم',
-                'كتاب', 'سيارة', 'دراجة', 'مشي', 'جري', 'غناء', 'ضحك'
+            cantonese: [
+                '屋企', '家庭', '媽媽', '爸爸', '仔女', 'BB', '朋友', '愛情', '生活', '工作',
+                '學校', '書', '車', '食物', '水', '音樂', '跳舞', '唱歌', '玩', '行路',
+                '跑步', '瞓覺', '食嘢', '飲嘢', '開心', '唔開心', '好', '唔好', '大', '細',
+                '新', '舊', '後生', '靚', '得意', '容易', '難', '快', '慢', '熱',
+                '凍', '暖', '涼', '光', '黑', '日頭', '夜晚', '朝早', '夜晚', '今日',
+                '聽日', '尋日', '星期', '月', '年', '時間', '錢', '工', '煮嘢食', '睇書',
+                '寫字', '畫畫', '唱歌', '跳舞', '游水', '跑步', '行路', '電話', '電腦', '相機',
+                '拍片', '相', '戲', '遊戲', '禮物', '派對', '生日', '旅行', '冒險', '世界',
+                '國家', '城市', '鄉村', '街', '路', '廚房', '房', '阿哥', '阿妹', '老公',
+                '老婆', '男朋友', '女朋友', '老師', '學生', '醫生', '護士', '紅色', '藍色', '綠色',
+                '黃色', '橙色', '紫色', '粉紅', '啡色', '黑色', '白色', '灰色', '銀色', '金色',
+                '顏色', '光', '暗', '清楚', '多雲', '太陽', '落雨', '春天', '夏天', '秋天',
+                '冬天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日', '一月', '二月',
+                '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月',
+                '派對', '慶祝', '節日', '音樂會', '戲院', '博物館', '狗', '貓', '雀仔', '魚',
+                '馬', '牛', '豬', '羊', '雞', '鴨', '樹', '花', '草', '植物',
+                '花園', '公園', '海灘', '山', '河', '湖', '海洋', '海', '森林', '天空',
+                '星', '月亮', '太陽', '地球', '火', '空氣', '風', '雨', '雪', '雷'
             ],
-            hindi: [
-                'घर', 'कुत्ता', 'बिल्ली', 'खाना', 'सोना', 'दोस्त', 'परिवार', 'संगीत',
-                'नृत्य', 'पार्टी', 'रसोई', 'यात्रा', 'समुद्र तट', 'पहाड़', 'शहर',
-                'बच्चा', 'माँ', 'पापा', 'स्कूल', 'काम', 'खेल', 'फिल्म',
-                'किताब', 'कार', 'साइकिल', 'चलना', 'दौड़ना', 'गाना', 'हंसना'
+            mandarin: [
+                '家', '家庭', '妈妈', '爸爸', '孩子', '宝宝', '朋友', '爱', '生活', '工作',
+                '学校', '书', '车', '食物', '水', '音乐', '跳舞', '唱歌', '玩', '走路',
+                '跑步', '睡觉', '吃', '喝', '高兴', '伤心', '好', '坏', '大', '小',
+                '新', '旧', '年轻', '漂亮', '可爱', '容易', '难', '快', '慢', '热',
+                '冷', '温暖', '凉爽', '光', '暗', '白天', '晚上', '早上', '晚上', '今天',
+                '明天', '昨天', '星期', '月', '年', '时间', '钱', '工作', '做饭', '读书',
+                '写字', '画画', '唱歌', '跳舞', '游泳', '跑步', '走路', '电话', '电脑', '照相机',
+                '录像', '照片', '电影', '游戏', '礼物', '聚会', '生日', '旅行', '冒险', '世界',
+                '国家', '城市', '村庄', '街道', '路', '厨房', '卧室', '哥哥', '姐姐', '丈夫',
+                '妻子', '男朋友', '女朋友', '老师', '学生', '医生', '护士', '红色', '蓝色', '绿色',
+                '黄色', '橙色', '紫色', '粉色', '棕色', '黑色', '白色', '灰色', '银色', '金色',
+                '颜色', '亮', '暗', '清楚', '多云', '阳光', '下雨', '春天', '夏天', '秋天',
+                '冬天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日', '一月', '二月',
+                '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月',
+                '聚会', '庆祝', '节日', '音乐会', '电影院', '博物馆', '狗', '猫', '鸟', '鱼',
+                '马', '牛', '猪', '羊', '鸡', '鸭', '树', '花', '草', '植物',
+                '花园', '公园', '海滩', '山', '河', '湖', '海洋', '海', '森林', '天空',
+                '星星', '月亮', '太阳', '地球', '火', '空气', '风', '雨', '雪', '雷'
             ],
-            dutch: [
-                'huis', 'hond', 'kat', 'eten', 'slapen', 'vriend', 'familie', 'muziek',
-                'dansen', 'feest', 'keuken', 'reis', 'strand', 'berg', 'stad',
-                'kind', 'mama', 'papa', 'school', 'werk', 'spel', 'film',
-                'boek', 'auto', 'fiets', 'lopen', 'rennen', 'zingen', 'lachen'
-            ],
-            chinese: [
-                '家', '狗', '猫', '吃', '睡', '朋友', '家庭', '音乐',
-                '跳舞', '派对', '厨房', '旅行', '海滩', '山', '城市',
-                '孩子', '妈妈', '爸爸', '学校', '工作', '游戏', '电影',
-                '书', '车', '自行车', '走', '跑', '唱歌', '笑'
-            ]
         };
         
         // Years for temporal diversity
